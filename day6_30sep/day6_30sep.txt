@@ -1,0 +1,74 @@
+promise chaining 
+ async and await 
+
+ function fun(){
+    return "hello"
+ }
+
+ fun()
+
+ =========================================================================================
+
+ let arr = [3,45,76,8,0,2,4,5,6,8]
+
+ map()
+ forEach()
+ find()
+ findIndex()
+ reduce()
+ filter()
+
+ ================================================================================================
+
+ ReactJS -  frontend javascript library for building UI.
+
+ library - collection of functions 
+ flexibility 
+
+ framework - collection of libraries -> control is in framework's hand
+
+ facebook developer - instagram 
+
+ react-native 
+
+ Features  - 
+ 1. SPA (single page application) - only one html page (index.html)
+ 2. components  -
+ 3. virtual DOM - react creates a copy of real DOM. 
+ 4. react fiber   
+ function or class -> Home page code 
+
+ html---->javascript
+ javascript--->html 
+
+ .js or .jsx - function or class -> return JSX (javascript syntax extension ) - html + javascript
+function fun(){
+   return "hello"
+}
+fun()
+
+function Fun(){
+   return <h1>hello</h1> //jsx 
+}
+
+<Fun></Fun> or <Fun/> 
+reusable components
+
+===================================================================
+
+1. components first letter capital (pascal case) - <App></App> or <App/>
+2. all html tags small letter  - <b></b> or <pre></pre>
+3. all tags should be paired. <br/> or <br></br> 
+4. class attribute -> className 
+5. label for -> htmlFor 
+
+====================================================================
+
+nodejs install 
+
+in users/appData/roaming -> create npm folder 
+in npm folder -> npm i npm g 
+
+=====================================================
+npx create-react-app react-basics
+

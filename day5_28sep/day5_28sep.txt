@@ -1,0 +1,54 @@
+asynchronous -  
+client -----------> request ------> server  (background process)
+client -----------> request 
+client -----------> request 
+server -----> response ---> client 
+server -----> response ---> client 
+client -----------> request 
+
+setTimeout  and events - asynchronous
+
+Promise Object - asynchronous javascript object 
+to overcome the issue of callback hell
+always futuristic 
+
+//nested callback 
+setTimeout(()=>{
+    fun3(()=>{
+        fun5(()=>{
+            fun(()=>{
+                fun1(()=>{
+
+                })
+            })
+        })
+    })
+})
+
+1. promise produce / create 
+2. promise consume 
+
+Pending state 
+fullfilled /success /resolve 
+not fullfilled / fail /reject
+
+
+let arr = new Array(2,3,5)
+
+let count=21
+let p = new Promise((resolve,reject)=>{
+    if(count<=10){
+        resolve()
+    }
+    else {
+        reject()
+    }
+})
+
+p.then(()=>{ }) //promise resolved
+ .catch(()=>{}) //promise rejected
+
+ In resolve and reject - we can pass only one argument  - [],{},"" etc.
+
+promise chaining 
+ async and await 

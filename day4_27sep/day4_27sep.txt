@@ -1,0 +1,64 @@
+module - import export  
+
+1. named - export {packagename1,packagename2,packagename3}
+
+import {packagename1,packagename2,packagename3} from 'path'
+name should be same
+
+
+2. default
+export default packagename 
+import packagename from 'path' 
+
+A module cannot have multiple default exports
+while importing we can change the name of the package 
+==========================
+commonjs - by default 
+require() - import 
+module.exports - export 
+
+
+module - 
+1. .mjs 
+2. package.json -> type:module 
+npm init --y 
+
+===========================================================================
+static data member 
+static member function 
+
+============================================================================
+synchronous and asynchronous 
+
+synchronous ->
+client ----> request ----> server 
+server -----> response ---> client 
+
+client ----> request ----> server 
+server -----> response ---> client
+
+asynchronous -  
+client -----------> request ------> server  (background process)
+client -----------> request 
+client -----------> request 
+server -----> response ---> client 
+server -----> response ---> client 
+client -----------> request 
+
+setTimeout  and events - asynchronous
+
+Promise Object - asynchronous javascript object 
+to overcome the issue of callback hell 
+
+//nested callback 
+setTimeout(()=>{
+    fun3(()=>{
+        fun5(()=>{
+            fun(()=>{
+                fun1(()=>{
+
+                })
+            })
+        })
+    })
+})
