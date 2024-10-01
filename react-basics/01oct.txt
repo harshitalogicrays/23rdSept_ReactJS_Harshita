@@ -8,3 +8,12 @@ rafc
 
 
 class - rcc 
+
+npm i -> create node_modules folder -> on the basis of package-lock.json and packgae.json
+=====================================================================================
+functional component  - 
+Fragment 
+props  -> defaultProps , children props 
+conditions - ?: 
+events - onClick 
+
