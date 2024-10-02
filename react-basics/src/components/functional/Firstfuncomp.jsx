@@ -32,13 +32,13 @@ function Firstfuncomp() {
 export default Firstfuncomp */
 
 //rafc
-import React from 'react'
+import React, { Fragment } from 'react'
 const Firstfuncomp = () => {
   return (
-    <div>
+    <Fragment>
           <h1>My First Fun Comp</h1>
           <h2>Welcome to LRA</h2>
-    </div>
+    </Fragment>
   )
 }
 export default Firstfuncomp
