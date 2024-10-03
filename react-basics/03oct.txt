@@ -1,0 +1,39 @@
+events - camelCase
+variable 
+addition 
+counter App 
+form handling 
+
+
+index.html<----App ----> Propsdemoinfun ----> EventsDemo
+
+button -> onclick="fun()"
+
+function fun(){}
+
+onClick={fun}
+
+onClick={()=>{}}
+
+=================================================
+state - react variable 
+
+class component -> statefull comp 
+function comp -> stateless comp 
+
+React 16 -> functional comp -> statefull 
+hooks -> react functions with some specific functionality for functional comp.
+useState 
+useEffect 
+useRef
+useCallback
+useMemo
+useReducer 
+useId 
+useContext 
+etc. 
+
+custom hooks 
+
+
+

@@ -36,8 +36,3 @@ short circuit operator - && (condition && true)
 
 
 ==================================================
-events
-variable 
-addition 
-counter App 
-form handling 

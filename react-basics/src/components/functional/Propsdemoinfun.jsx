@@ -22,6 +22,7 @@ export default Propsdemoinfun
 
 
  import React from 'react'
+import EventsDemo from './EventsDemo'
  
  const Propsdemoinfun = ({username="Happy",address,isActive,children}) => {
    return (
@@ -32,6 +33,7 @@ export default Propsdemoinfun
       <hr/>
       {/* {children} */}
       {children[2]}
+      <EventsDemo/>
      </>
    )
  }
