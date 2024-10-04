@@ -1,15 +1,9 @@
 import React, { useState } from 'react'
 import FormImage from '../../assets/images/register.png'
-const Form1 = () => {
+const Form2 = () => {
     let [user,setUser] = useState({username:'',email:'',password:'',cpassword:''})
-
-    const handleChange = (e)=>{
-        console.log(e) //user = {username:'',email:'',password:'',cpassword:''}
-        setUser({...user,[e.target.name]:e.target.value}) //user = {username:'ww',email:'aa',password:'',cpassword:''}
-    }
-
     const handleSubmit=(e)=>{
-        e.preventDefault() // prevent from by default nature of form submission 
+        e.preventDefault() 
         alert(JSON.stringify(user))
         
     }
@@ -24,22 +18,22 @@ const Form1 = () => {
                     <div className="mb-3">
                         <label for="" className="form-label">Username</label>
                         <input type="text" name="username"  className="form-control" value={user.username}
-                        onChange={handleChange}/>
+                        onChange={(e)=>setUser({...user,username:e.target.value})}/>
                     </div>
                     <div className="mb-3">
                         <label for="" className="form-label">Email</label>
                         <input type="text" name="email"  className="form-control"  value={user.email}
-                        onChange={handleChange}/>
+                         onChange={(e)=>setUser({...user,email:e.target.value})}/>
                     </div>
                     <div className="mb-3">
                         <label for="" className="form-label">Password</label>
                         <input type="password" name="password"  className="form-control"  value={user.password}
-                        onChange={handleChange} />
+                       onChange={(e)=>setUser({...user,password:e.target.value})} />
                     </div>
                     <div className="mb-3">
                         <label for="" className="form-label">Confirm Password</label>
                         <input type="password" name="cpassword"  className="form-control" value={user.cpassword}
-                        onChange={handleChange} />
+                        onChange={(e)=>setUser({...user,cpassword:e.target.value})} />
                     </div>
                     <button type="submit" className="btn btn-primary" >  Submit  </button>
                     
@@ -50,4 +44,4 @@ const Form1 = () => {
   )
 }
 
-export default Form1
+export default Form2

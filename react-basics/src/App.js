@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom';
 import './App.css';
 import Firstclasscomp from './components/classcomp/Firstclasscomp';
 import Addition from './components/functional/Addition';
@@ -6,12 +7,17 @@ import Firstfuncomp from './components/functional/Firstfuncomp';
 import Form1 from './components/functional/Form1';
 import Propsdemoinfun from './components/functional/Propsdemoinfun';
 import Statedemo from './components/functional/Statedemo';
+import Header from './components/Header';
 
 //root component
 function App() {
   return (
+    <>
+    <Header/>
     <div className="container mt-5">
-      <h1 className='text-primary'>Hello React</h1>
+      <Outlet/>
+      
+      {/* <h1 className='text-primary'>Hello React</h1> */}
       {/* <Firstfuncomp></Firstfuncomp>
       <Firstclasscomp></Firstclasscomp>
       <hr/>
@@ -27,8 +33,9 @@ function App() {
         {/* <Counter/> */}
         {/* <Addition/> */}
 
-        <Form1/>
+        {/* <Form1/> */}
     </div>
+    </>
   );
 }
 
