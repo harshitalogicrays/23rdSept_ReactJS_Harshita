@@ -32,7 +32,7 @@ import EventsDemo from './EventsDemo'
       {isActive && <h2>User is Active</h2> }
       <hr/>
       {/* {children} */}
-      {children[2]}
+      {/* {children[2]} */}
       <EventsDemo/>
      </>
    )

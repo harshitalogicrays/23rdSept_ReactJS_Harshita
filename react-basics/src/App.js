@@ -13,7 +13,7 @@ import Header from './components/Header';
 function App() {
   return (
     <>
-    <Header/>
+     <Header/>
     <div className="container mt-5">
       <Outlet/>
       

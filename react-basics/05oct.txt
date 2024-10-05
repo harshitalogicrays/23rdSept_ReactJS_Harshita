@@ -1,0 +1,6 @@
+let funlinks = ['first','props','state','counter','form']
+
+=============================================================
+form validations - 
+monday - 2 o 3:30 
+
