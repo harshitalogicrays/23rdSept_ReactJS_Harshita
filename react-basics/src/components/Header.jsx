@@ -11,6 +11,7 @@ const Header = () => {
     {id:5,text:'Counter',to:'/fun/counter'},
     {id:6,text:'Form in Fun',to:'/fun/form'},
     {id:7,text:'Form Validations in Fun',to:'/fun/form/validation'},
+    {id:8,text:'List rendering',to:'/fun/list'}
   ]
 
   return (
