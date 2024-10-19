@@ -1,0 +1,38 @@
+functional component  - 
+Fragment  - wrapper 
+1. <React.Fragment></React.Fragment>
+
+2. <Fragment></Fragment>
+import {Fragment} from 'react'
+
+3. <></> -> shorthand of Fragment
+
+
+==================================================================
+props -
+<h1 id="" class="" style=""></h1> => id,class,style = attributes
+
+property - props
+<Comp username="Jimit"></Comp>
+
+       props passing
+Parent---------------> child 
+
+props are readonly.
+
+===================================================
+props  -> defaultProps , children props 
+
+<div>
+    <p></p>
+    <h1></h1>
+</div>
+
+
+
+conditions - ?: 
+ternary operator - ?: (condition ? true : false )
+short circuit operator - && (condition && true)
+
+
+==================================================

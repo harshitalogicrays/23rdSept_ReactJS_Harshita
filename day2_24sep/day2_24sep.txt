@@ -1,0 +1,92 @@
+ECMA Script 5 - var , hoisting ,  closure, function, object 
+
+ECMA Script 6 - 2015 - JavaScript -> 
+let and const keywords 
+template string
+arrow function 
+rest parameter and spread operator 
+destructuring assignments
+enhanced object literal 
+default parameter 
+module - import and export 
+OOP - class and object and inheritance 
+Promise object 
+async and await 
+
+functions - 
+Map
+filter
+findIndex 
+find 
+forEach 
+reduce 
+reduceRight 
+some and every etc.
+
+
+int a; //0 or grabage 
+char c = ''
+
+two numbers add ->
+var - scope 
+let a //value  = undefined , datatype=undefined 
+var a 
+
+var n = 10 //value=10 , datatype = number 
+let str = "harshita" //value = "harshita" datatype- string 
+
+n=true //value=boolean , datatype=boolean 
+
+var                              let                                       const 
+variable                       variable                                  constant (fixed value)
+hoist                          never hoist                               never hoist
+function scope                 block scope                                 block scope 
+redeclaration allowed          not allowed                                 const PI = 3.14
+                                                            'const' declarations must be initialized.
+
+
+function fun(){
+    .
+    .
+    .
+    for(let i=1;i<=10;i++){
+        console.log(i)
+    }
+}
+                        
+
+var a = 10
+var a ="hello"
+
+mdn webdocs - 
+
+object - object literal 
+function 
+array 
+
+arrow function 
+rest parameter and spread operator 
+destructuring assignments - array and object
+default parameter 
+
+========================
+JavaScript object convert into json string -
+JSON.stringify()
+
+JSON string convert into JavaScript object -
+JSON.parse()
+
+======================================
+
+
+destructuring assignments - array and object - 
+===================================
+class 
+object 
+OOP concepts
+static data member 
+=============================================
+enhanced object literal 
+
+
+

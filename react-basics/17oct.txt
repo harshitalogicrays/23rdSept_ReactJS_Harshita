@@ -1,0 +1,15 @@
+custom comp
+button -> Button -> color ,onclick, ondoubleclick, disabled id name class style 
+
+<Button type="" variant="" onClick="" className="" style={{}}></Button>
+<Form.Control></Form.Control>
+=========================================================
+type , class , id,name, placeholder, disabled, readonly, required, autofocus,onchange, onBlur 
+onClick, role , aria-current, style , autoComplete  etc. 
+
+append/prepend icon 
+append/prepend text 
+floating form 
+
+==============================================
+class component - 

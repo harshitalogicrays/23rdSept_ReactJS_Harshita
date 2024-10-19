@@ -1,0 +1,60 @@
+
+enhanced object literal - 
+
+
+====================================================
+POP - focus is on procedure - not on data 
+complex projects - real world 
+OOP - focus is on data 
+
+
+object  - real time entity which have some properties and functionalities/behaviour . 
+ex-  lock , cup, camera , wire , 
+
+class  - blueprint or template for creating object.
+web camera
+digi camera
+reel camera 
+cam  
+
+OOP concepts / major pillars- 
+1. data encapsulation -  wrap data and function into single unit.
+access data - using function 
+access specifiers  -  private , public and protected (not support)
+getter and setters
+implementation level
+
+2. data abstraction  - data hiding 
+    only essestinal info
+design level 
+abstract class (not support)
+
+
+3. inheritance  - reusability of code + extensibility of code
+parent /super / base  
+child /sub / dervied 
+
+single level -> Person<---------------Employee  (class Employee extends Person{})
+multilevel  -> Person <----- Employee <---- Developer 
+hierarchical  -> Employee <----------- Developer
+                         <----------- Tester 
+                         <----- SalesExecutive 
+
+multiple -> no support (interface )
+mother 
+    <-----------child 
+father 
+
+
+
+4. polymorphism - 
+function overloading - not supported 
+function overriding 
+
+
+static data member 
+
+module - import export  
+=============================================
+
+typescript - superset of javascript 

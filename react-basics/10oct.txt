@@ -1,0 +1,11 @@
+fetch -> 
+HTTP GET 
+    POST  - registered (username,email,mobile,password) 
+    PUT / PATCH  - 
+    PUT -> mobile change ,email,password,username etc.
+    PATCH -> mobile change 
+    DELETE
+
+
+    fetch - javascript provided it , it returns promise
+    By default get method

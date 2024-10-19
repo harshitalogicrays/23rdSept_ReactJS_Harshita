@@ -1,0 +1,17 @@
+declutter component
+
+useCallback  - to increase the peformance of app / optimize the code 
+
+useCallback is a React Hook that lets you cache a function definition between re-renders.
+
+function definitioan - cache 
+let fun =  useCallback(()=>{},[])
+
+===============================================
+useMemo  -  useMemo is a React Hook that lets you cache the result of a calculation between re-renders.
+
+
+-======================================================
+useRef  - 
+=====
+useLayoutEffect vs useEffect 

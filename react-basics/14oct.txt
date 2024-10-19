@@ -1,0 +1,53 @@
+library -
+1. formik
+2. react-hook-form  - useForm() hook (functional component -> form design and html validations)
+
+
+{...register('username' , {validations} )}
+
+{...register('username' , {required:true} )}
+
+{...register('username' , {required:"Username is required"} )}
+
+{...register('username' , {required:{value:true,message:"Username is required"}} )}
+
+{...register('username' , {required:{value:true,message:"Username is required"},
+    minLength:{value:5,message:"min 5 char"}
+} )}
+
+=====================================================================================
+CSS in react -
+1. inline css - <h1 style={{color:"yellow",backgroundColor:"red"}} ></h1>
+2. css variable -
+const styles = { color:"" , fontSize:"" , backgroundColor:"", textDecoration:""}
+
+<h1 style = {styles}></h1>
+<p style = {styles}></p>
+
+3. css file  - .css 
+import "path of css file "
+parent --> all children can access without importing
+
+4. module css =  .module.css 
+import alias from 'path'
+we have to import it wherever we want to use it.
+
+
+5. boostrap - <div class="container"></div>
+
+6. react-bootstrap (Component)
+<Container></Container>
+<Row></Row>
+<Col></Col>
+
+<input class="form-contorl">
+<Form.Control/>
+
+7. styled-components
+
+============================================================
+useState and useEffect 
+useCallback 
+useRef 
+
+useMemo 

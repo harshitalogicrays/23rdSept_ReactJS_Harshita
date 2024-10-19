@@ -1,0 +1,39 @@
+
+useCallback  - to increase the peformance of app / optimize the code 
+
+useCallback is a React Hook that lets you cache a function definition between re-renders.
+
+function definitioan - cache 
+let fun =  useCallback(()=>{},[])
+
+===============================================
+
+form component -
+1. controlled component - react manages it - state and onChange handler
+2. uncontrolled component- DOm manages  -  ref (reference)
+ref - return current name property 
+class component -  React.createRef()
+function component -  React.useRef()
+
+useRef  - 
+=====
+useLayoutEffect vs useEffect 
+
+useLayoutEffect is a version of useEffect that fires before the browser repaints the screen.
+
+=======================================================================
+useMemo  -  useMemo is a React Hook that lets you cache the result of a calculation between re-renders.
+
+React 19  - useCallback and useMemo => memoization (code optimization)
+
+-======================================================
+styled-component - 
+<MyBtn></MyBtn>
+=================================================
+lifting the state up
+===================================================
+custom comp
+button -> Button -> color ,onclick, ondoubleclick, disabled id name class style 
+
+=========================================================
+class component - 
