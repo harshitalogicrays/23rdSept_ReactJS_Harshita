@@ -1,5 +1,6 @@
 ref 
 forwardRef 
+class component life cycle methods 
 purecomponent 
 HOC (higher order component)
 ==========================================

@@ -22,6 +22,9 @@ import ClassLayout from './classcomp/ClassLayout'
 import Propsinclass from './classcomp/Propsinclass'
 import StateandEventinclass from './classcomp/StateandEventinclass'
 import ClassForm from './classcomp/ClassForm'
+import Refdemoinclass from './classcomp/Refdemoinclass'
+import PureCompDemo from './classcomp/PureCompDemo'
+import LifeCycleMethods from './classcomp/LifeCycleMethods'
 
 const Routing = () => {
     // base url - ('/')=> localhost:2000
@@ -51,6 +54,9 @@ const Routing = () => {
                   <Route path='props' element={<Propsinclass username="Ram"><h1>Children of props demo in class</h1></Propsinclass>}/>
                   <Route path='stateevent' element={<StateandEventinclass/>}/>
                   <Route path='form' element={<ClassForm/>}/>
+                  <Route path='ref' element={<Refdemoinclass/>}/>
+                  <Route path='pure' element={<PureCompDemo/>}/>
+                  <Route path='lifecycle' element={<LifeCycleMethods/>}/>
             </Route>
         </Route>
     </Routes>

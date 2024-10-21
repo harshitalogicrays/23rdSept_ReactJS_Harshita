@@ -1,0 +1,15 @@
+ref 
+forwardRef 
+class component life cycle methods 
+purecomponent 
+HOC (higher order component)
+==========================================
+<input ref="101">
+<comp inner={ref}/>
+
+<Comp ref="101"/>
+===============================================================================
+class component - 
+=================================
+Error Boundary 
+HOC 
