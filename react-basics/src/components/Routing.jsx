@@ -25,6 +25,8 @@ import ClassForm from './classcomp/ClassForm'
 import Refdemoinclass from './classcomp/Refdemoinclass'
 import PureCompDemo from './classcomp/PureCompDemo'
 import LifeCycleMethods from './classcomp/LifeCycleMethods'
+import ErrorBoundaryDemo from './classcomp/ErrorBoundaryDemo'
+import HOCdemo from './classcomp/HOCdemo'
 
 const Routing = () => {
     // base url - ('/')=> localhost:2000
@@ -57,6 +59,8 @@ const Routing = () => {
                   <Route path='ref' element={<Refdemoinclass/>}/>
                   <Route path='pure' element={<PureCompDemo/>}/>
                   <Route path='lifecycle' element={<LifeCycleMethods/>}/>
+                  <Route path='error' element={<ErrorBoundaryDemo/>}/>
+                  <Route path='hoc' element={<HOCdemo/>}/>
             </Route>
         </Route>
     </Routes>

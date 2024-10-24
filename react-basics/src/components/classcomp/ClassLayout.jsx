@@ -10,6 +10,8 @@ const ClassLayout = () => {
         {id:5,text:"ref",path:'/class/ref'},
         {id:6,text:"pure comp",path:'/class/pure'},
         {id:7,text:"comp life cycle ",path:'/class/lifecycle'},
+        {id:8,text:"Error Boundary ",path:'/class/error'},
+        {id:9,text:"Higher Order Component ",path:'/class/hoc'},
     ]
   return (
     <div className='row'>
@@ -17,7 +19,7 @@ const ClassLayout = () => {
         <nav class="nav flex-column">
             {classLinks.map((link)=><React.Fragment key={link.id}>
                 <NavLink  className={({isActive})=>isActive?"nav-link bg-warning text-danger fw-bold":"nav-link"} end to={link.path}>{link.text}</NavLink>
-                <hr/>
+
             </React.Fragment>)}
        
         </nav>

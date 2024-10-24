@@ -1,0 +1,9 @@
+Error Boundary  - 
+
+
+HOC  - Higher Order Component - 
+Component logic reuse 
+
+========================================================
+context API -  
+theme changer - 
