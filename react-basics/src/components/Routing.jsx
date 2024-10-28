@@ -27,13 +27,15 @@ import PureCompDemo from './classcomp/PureCompDemo'
 import LifeCycleMethods from './classcomp/LifeCycleMethods'
 import ErrorBoundaryDemo from './classcomp/ErrorBoundaryDemo'
 import HOCdemo from './classcomp/HOCdemo'
+import ContextDemo from './ContextDemo'
+import ThemeContext from './ThemeContext'
 
 const Routing = () => {
     // base url - ('/')=> localhost:2000
   return (
   <>
     <Routes>
-        <Route path='/' element={<App/>}>
+        <Route path='/' element={<ThemeContext><ContextDemo><App/></ContextDemo></ThemeContext>}>
             <Route path='' element={<Home/>}></Route>
             <Route path='about' element={<About/>}/>
             <Route path='fun/first' element={<Firstfuncomp/>}/>

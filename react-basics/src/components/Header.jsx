@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import ThemeBtn from './ThemeBtn'
 
 const Header = () => {
 
@@ -55,6 +56,7 @@ const Header = () => {
         <NavLink className={({isActive})=>isActive?"nav-link bg-warning text-danger fw-bold":"nav-link"}  to="/customcomp">Custom Component</NavLink>
         </li>
       </ul>
+      <ThemeBtn/>
       <form className="d-flex" role="search">
         <div className="input-group">
         <input className="form-control" type="search" placeholder="Search" aria-label="Search"/>
