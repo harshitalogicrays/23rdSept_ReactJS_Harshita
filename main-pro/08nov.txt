@@ -1,0 +1,16 @@
+npm  create vite -
+npm i 
+npm run dev 
+package.json -> npm start
+
+bootstrap - css framework 
+readymade classes 
+grid system 
+ready comp -  btn class 
+
+tailwindcss - css framework 
+readymade classes - inline classes -> convert into css properties 
+
+border-1  => tag{border:1}
+css flex box 
+css grid 
