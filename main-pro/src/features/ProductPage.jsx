@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { useCart } from './CartContext'
 
 const ProductPage = () => {
+   const cartcon = useCart()
     let [products,setProducts] =useState([])
 
     useEffect(()=>{
@@ -18,8 +20,8 @@ const ProductPage = () => {
           console.log(err)
         }
       }
-      const handleCart=()=>{
-        alert("added to cart")
+      const handleCart=(product)=>{
+       cartcon.addtocart(product)
       }
   return (
     <>
@@ -47,7 +49,7 @@ const ProductPage = () => {
                 </div>
                 <p className="text-sm font-medium text-gray-900">{product.price}</p>
               </div>
-              <button type="button" className='bg-slate-800 text-white p-2 rounded shadow shadow-black hover:bg-white hover:text-red-300 font-bold mt-2' onClick={handleCart}>Add to cart</button>
+              <button type="button" className='bg-slate-800 text-white p-2 rounded shadow shadow-black hover:bg-white hover:text-red-300 font-bold mt-2' onClick={()=>handleCart(product)}>Add to cart</button>
             </div>
           ))}
         </div>
