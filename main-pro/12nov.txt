@@ -1,0 +1,12 @@
+
+json  - local json file 
+ local json-server 
+
+ mockapi.io -  free 2 resources 
+
+ https://67331a7f2a1b1a4ae1120b27.mockapi.io/users/2 => 
+ 2 => (id) => query parameter 
+
+ https://67331a7f2a1b1a4ae1120b27.mockapi.io/users?username=meera&password=meera123
+
+ ?username=meera&password=meera123 => query string 

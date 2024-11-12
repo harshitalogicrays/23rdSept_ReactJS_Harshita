@@ -12,7 +12,7 @@ const ProductPage = () => {
 
       const getData = async()=>{
         try{
-          let res  = await fetch("https://fakestoreapi.com/products")
+          let res  = await fetch("https://fakestoreapi.com/products",{method:"GET"})
           let data  = await res.json()
           return data 
         }

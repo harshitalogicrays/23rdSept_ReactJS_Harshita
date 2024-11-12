@@ -1,26 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { TrashIcon } from '@heroicons/react/24/outline';
+import { useCart } from './CartContext';
 export const Cart = () => {
-    const cartItems = [
-        {
-          id: 1,
-          name: 'Product 1',
-          price: 29.99,
-          quantity: 2,
-          imageSrc: 'https://via.placeholder.com/150',
-        },
-        {
-          id: 2,
-          name: 'Product 2',
-          price: 49.99,
-          quantity: 1,
-          imageSrc: 'https://via.placeholder.com/150',
-        },
-      ];
-    
-      const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-    
+    const cartcon = useCart()
+    const {cartItems,total,increase,decrease,remove_from_cart,empty_cart,calculate_total} = cartcon
+    useEffect(()=>{calculate_total() },[cartItems])
       return (
         <div className="max-w-7xl mx-auto p-8 bg-gray-100">
       <h1 className="text-4xl font-bold mb-8 text-gray-800">Shopping Cart</h1>
@@ -31,26 +16,24 @@ export const Cart = () => {
             {cartItems.map((item) => (
               <div key={item.id} className="flex items-center justify-between py-6 border-b border-gray-200">
                 <div className="flex items-center gap-6">
-                  <img src={item.imageSrc} alt={item.name} className="w-24 h-24 object-cover rounded-lg" />
+                  <img src={item.image} alt={item.title} className="w-24 h-24 object-cover rounded-lg" />
                   <div>
-                    <h2 className="text-xl font-semibold text-gray-800">{item.name}</h2>
+                    <h2 className="text-xl font-semibold text-gray-800">{item.title}</h2>
                     <p className="text-gray-600">Price: ${item.price.toFixed(2)}</p>
+                    <p className="text-gray-600">total Price: ${(item.price * item.qty).toFixed(2)}</p>
                     <div className="flex items-center mt-4">
-                      <label htmlFor={`quantity-${item.id}`} className="mr-3 text-gray-700">
-                        Quantity:
-                      </label>
+                      <button type="button"  className="w-16 p-2 text-center" onClick={()=>decrease(item)}>-</button>
                       <input
                         type="number"
-                        id={`quantity-${item.id}`}
-                        name={`quantity-${item.id}`}
                         min="1"
-                        value={item.quantity}
+                        value={item.qty}
                         className="w-16 p-2 border border-gray-300 rounded-lg text-center"
                       />
+                      <button type="button" className="w-16 p-2 text-center" onClick={()=>increase(item)}>+</button>
                     </div>
                   </div>
                 </div>
-                <button className="text-red-500 hover:text-red-700">
+                <button className="text-red-500 hover:text-red-700" onClick={()=>remove_from_cart(item.id)}>
                   <TrashIcon className="h-6 w-6" />
                 </button>
               </div>
@@ -64,18 +47,20 @@ export const Cart = () => {
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">Order Summary</h2>
             <div className="flex justify-between text-lg mb-4">
               <span className="text-gray-700">Subtotal</span>
-              <span className="font-medium text-gray-900">${totalPrice.toFixed(2)}</span>
+              <span className="font-medium text-gray-900">${total.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-lg mb-4">
               <span className="text-gray-700">Shipping</span>
-              <span className="font-medium text-gray-900">$5.00</span>
+              <span className="font-medium text-gray-900">{total>0 && total < 200 ? "$5.00" :"$0.00"}</span>
             </div>
             <div className="flex justify-between text-xl font-bold border-t pt-6">
               <span>Total</span>
-              <span className="text-gray-900">${(totalPrice + 5).toFixed(2)}</span>
+              <span className="text-gray-900">${(total>0 && total < 200) ? <>{(total + 5).toFixed(2)}</>:
+              <>{(total + 0).toFixed(2)}</> }</span>
             </div>
             <div className="flex justify-between">
-            <button className="mt-8 w-36 me-3 bg-red-600 text-white py-3 rounded-lg text-lg font-medium hover:bg-red-700 transition duration-200">
+            <button className="mt-8 w-36 me-3 bg-red-600 text-white py-3 rounded-lg text-lg font-medium hover:bg-red-700 transition duration-200"
+            onClick={()=>empty_cart()}>
                 Empty Cart
               </button>
             <Link to="/checkout">
