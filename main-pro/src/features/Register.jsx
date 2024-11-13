@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 
 const Register = () => {
   const redirect = useNavigate()
-  const [user,setUser] =useState({username:'',email:'',password:'',cpassword:''})
+  const [user,setUser] =useState({username:'',email:'',password:'',cpassword:'',role:'1'})
   const handleSubmit=async(e)=>{
     e.preventDefault()
     if(!user.username ||!user.email || !user.password ||!user.cpassword){

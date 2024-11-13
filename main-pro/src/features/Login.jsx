@@ -13,10 +13,11 @@ const Login = () => {
       const data = await res.json()
      if(data.length==0){toast.error("Invalid credentials")}
      else if(data[0].password == user.password){
-      let obj = {isLoggedIn:true,username:data[0].username,email:data[0].email}
+      let obj = {isLoggedIn:true,username:data[0].username,email:data[0].email,role:data[0].role}
        sessionStorage.setItem("23rdsept",JSON.stringify(obj))
         toast.success("loggedIn Successfully")
-        redirect('/')
+        if(data[0].role=="1") redirect('/')
+      else if(data[0].role=='0') redirect('/admin')
      }
      else toast.error("Invalid credentials")
     }

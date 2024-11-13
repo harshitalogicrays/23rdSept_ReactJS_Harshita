@@ -1,0 +1,7 @@
+let arr = [2,3,54,6,2,8,1,9,2]
+
+let newarr = arr.slice(2,7) //2 to 6
+newarr = [54,6,2,8,1]
+
+Admin -> 
+Add , Update, delete and fetch products - CRUD -> 
