@@ -1,4 +1,6 @@
-import { FaHome, FaUser, FaCog } from 'react-icons/fa';
+import { FaHome, FaUser, FaCog, FaListAlt } from 'react-icons/fa';
+import { FaBagShopping } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
@@ -12,14 +14,14 @@ const Sidebar = () => {
           <FaHome className="mr-0 sm:mr-3" />
           <span className="hidden sm:block">Dashboard</span>
         </a>
-        <a href="#" className="flex items-center p-4 hover:bg-gray-700">
-          <FaUser className="mr-0 sm:mr-3" />
-          <span className="hidden sm:block">Users</span>
-        </a>
-        <a href="#" className="flex items-center p-4 hover:bg-gray-700">
-          <FaCog className="mr-0 sm:mr-3" />
-          <span className="hidden sm:block">Settings</span>
-        </a>
+        <Link to='/admin/add' className="flex items-center p-4 hover:bg-gray-700">
+          <FaBagShopping className="mr-0 sm:mr-3" />
+          <span className="hidden sm:block">Add Product</span>
+        </Link>
+        <Link to='/admin/view' className="flex items-center p-4 hover:bg-gray-700">
+          <FaListAlt className="mr-0 sm:mr-3" />
+          <span className="hidden sm:block">View Products</span>
+        </Link>
       </nav>
     </div>
   );

@@ -11,6 +11,8 @@ import CartContext from "./features/CartContext";
 import AdminLayout from "./features/Admin/AdminLayout";
 import Dashboard from "./features/Admin/Dashboard";
 import { Protected, ProtectedAdmin } from "./features/hiddenlinks";
+import AddProduct from "./features/Admin/AddProduct";
+import ViewProduct from "./features/Admin/ViewProduct";
 
 const routing = createBrowserRouter([
         {path:'/',element:<CartContext ><App/></CartContext>,
@@ -26,7 +28,9 @@ const routing = createBrowserRouter([
         },
         {path:'/admin',element:<ProtectedAdmin><AdminLayout/></ProtectedAdmin>,
             children:[
-                {path:'',element:<Dashboard/>}
+                {path:'',element:<Dashboard/>},
+                {path:'add',element:<AddProduct/>},
+                {path:'view',element:<ViewProduct/>}
             ]
         }
 ])

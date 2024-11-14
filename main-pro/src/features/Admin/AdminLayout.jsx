@@ -2,9 +2,17 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Sidebar from './Sidebar'
 import AdminHeader from './AdminHeader'
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 const AdminLayout = () => {
   return (
+    <>
+      <ToastContainer position="bottom-left" autoClose={2000}
+hideProgressBar={false} newestOnTop={false} closeOnClick
+rtl={false} pauseOnFocusLoss={false}
+draggable pauseOnHover={false} theme="colored"
+/>
     <div className="flex h-screen">
       <Sidebar />
       <div className="flex flex-col flex-grow">
@@ -14,6 +22,7 @@ const AdminLayout = () => {
         </main>
       </div>
     </div>
+    </>
   )
 }
 
