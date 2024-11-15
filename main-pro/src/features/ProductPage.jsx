@@ -13,7 +13,7 @@ const ProductPage = () => {
 
       const getData = async()=>{
         try{
-          let res  = await fetch("https://fakestoreapi.com/products",{method:"GET"})
+          let res  = await fetch("https://67331a7f2a1b1a4ae1120b27.mockapi.io/products",{method:"GET"})
           let data  = await res.json()
           return data 
         }
@@ -50,7 +50,7 @@ const ProductPage = () => {
             <div key={product.id} className="group relative">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-72">
                 <img
-                  alt={product.title}
+                  alt={product.name}
                   src={product.image}
                   className="h-72 w-full object-cover object-center lg:w-96 lg:h-72"
                 />
@@ -59,11 +59,11 @@ const ProductPage = () => {
                 <div>
                   <h3 className="text-sm text-gray-700">
                       <span aria-hidden="true" className=" inset-0" />
-                      {product.title}
+                      {product.name}
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">{product.category}</p>
                 </div>
-                <p className="text-sm font-medium text-gray-900">{product.price}</p>
+                <p className="text-sm font-medium text-gray-900">{product.selling_price}</p>
               </div>
               <button type="button" className='bg-slate-800 text-white p-2 rounded shadow shadow-black hover:bg-white hover:text-red-300 font-bold mt-2' onClick={()=>handleCart(product)}>Add to cart</button>
             </div>

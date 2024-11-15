@@ -30,9 +30,11 @@ const routing = createBrowserRouter([
             children:[
                 {path:'',element:<Dashboard/>},
                 {path:'add',element:<AddProduct/>},
-                {path:'view',element:<ViewProduct/>}
+                {path:'view',element:<ViewProduct/>},
+                {path:'edit/:id',element:<AddProduct/>},
             ]
         }
 ])
+
 
 export default routing

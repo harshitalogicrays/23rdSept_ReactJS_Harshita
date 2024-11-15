@@ -1,0 +1,49 @@
+context - react 16v - multitple context , we can decide provider 
+
+flux 
+redux tool - A JS library for predictable and maintainable global state management
+
+@reduxjs/toolkit - The official, opinionated, batteries-included toolset for efficient Redux development 
+The Redux Toolkit package is intended to be the standard way to write Redux logic. It was originally created to help address three common concerns about Redux:
+
+"Configuring a Redux store is too complicated"
+"I have to add a lot of packages to get Redux to do anything useful"
+"Redux requires too much boilerplate code"
+
+ only one store , Root will be provider
+single source of truth 
+
+store 
+action 
+reducers
+state 
+view 
+
+cake shop -  
+cake, pastry,choclates, cupcakes,muffins,brownies, bread,cookies etc.
+cake shelf /container 
+customer 
+shopkeeper 
+
+customer ---------> BUY_CAKE-------------> shopkeeper---------------> shelf
+ view                (actions)              functions 
+shelf -------------------> customer
+
+Dealer -----------> SELL_CAKE ---------------> shopkeeper--------------------> shelf
+
+
+state (data)-> cake, pastry,choclates, cupcakes,muffins,brownies, bread,cookies etc.
+cake shelf -> store (where all state of the project resides)
+shopkeeper -> reducers (pure functions)
+BUY_CAKE,SELL_CAKE etc-  actions
+customer/Dealer -> view 
+
+
+view -----------> action----------------->reducers ------------------> store  (state)
+      dispatch    (BUY_CAKE)              BUY_CAKE function
+
+store -------------> view 
+       select 
+
+slice -> cake -> reducers 
+          muffins--> reducers

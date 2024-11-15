@@ -1,6 +1,8 @@
 import { TrashIcon } from '@heroicons/react/24/outline'
 import React, { useEffect, useState } from 'react'
 import { BsPen, BsTrash } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const ViewProduct = () => {
     const [products, setProducts] = useState([])
@@ -12,6 +14,17 @@ const ViewProduct = () => {
             setProducts(data)
         }
         catch (err) { console.log(err) }
+    }
+
+    const handleDelete=async(id)=>{
+        if(window.confirm('are you sure to delete this??')){
+            try {
+                await fetch(`https://67331a7f2a1b1a4ae1120b27.mockapi.io/products/${id}`,{method:"DELETE"})
+                toast.success("product deleted")
+                getData()
+            }
+            catch (err) { console.log(err) }
+        }
     }
     return (
         <>
@@ -42,8 +55,8 @@ const ViewProduct = () => {
                         <td class="border border-slate-300 p-2">{product.selling_price}</td>
                         <td class="border border-slate-300 p-2">{product.stock}</td>
                         <td class="border border-slate-300 p-2">
-                            <button type="button" className="text-green-500 hover:text-green-700 me-7 ms-4"><BsPen/></button>
-                            <button className="text-red-500 hover:text-red-700">
+                            <Link type="button" className="text-green-500 hover:text-green-700 me-7 ms-4" to={`/admin/edit/${product.id}`}><BsPen/></Link>
+                            <button className="text-red-500 hover:text-red-700" onClick={()=>handleDelete(product.id)}>
                              <TrashIcon className="h-6 w-6" />
                 </button>
                         </td>

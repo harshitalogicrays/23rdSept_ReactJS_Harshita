@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { login_user } from '../redux/userSlice'
 
 const Login = () => {
+  const dispatch = useDispatch()
   const redirect = useNavigate()
   const [user,setUser]=useState({email:'',password:''})
   const handleSubmit = async(e)=>{
@@ -13,8 +16,11 @@ const Login = () => {
       const data = await res.json()
      if(data.length==0){toast.error("Invalid credentials")}
      else if(data[0].password == user.password){
-      let obj = {isLoggedIn:true,username:data[0].username,email:data[0].email,role:data[0].role}
+      let obj = {isLoggedIn:true,username:data[0].username,email:data[0].email,role:data[0].role,id:data[0].id}
        sessionStorage.setItem("23rdsept",JSON.stringify(obj))
+
+        dispatch(login_user(obj)) //login_user action dispatch
+
         toast.success("loggedIn Successfully")
         if(data[0].role=="1") redirect('/')
       else if(data[0].role=='0') redirect('/admin')

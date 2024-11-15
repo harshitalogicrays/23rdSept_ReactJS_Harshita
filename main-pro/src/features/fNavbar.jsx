@@ -6,6 +6,8 @@ import { ShoppingCartIcon } from '@heroicons/react/24/solid'
 import { useCart } from './CartContext'
 import { toast } from 'react-toastify'
 import { ShowOnLogin, ShowOnLogout } from './hiddenlinks'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout_user, selectName } from '../redux/userSlice'
 
 const navigation = [
   { name: 'Home', href: '/'},
@@ -17,14 +19,19 @@ const navigation = [
 const FNavbar = () => {
   const cartcon =  useCart()
   const redirect = useNavigate()
+  const dispatch = useDispatch()
   const handleLogout=()=>{
     if(sessionStorage.getItem('23rdsept') != null){
       sessionStorage.removeItem('23rdsept')
       toast.success("loggedOut Successfully")
+      dispatch(logout_user())
       redirect('/')
     }
   }
   // console.log(cartcon)
+
+  // const username = useSelector((state)=>state.user.name)
+  const username = useSelector(selectName)
   return (
     <Disclosure as="nav" className="bg-gray-800">
       <div className="mx-auto max-w-7xl px-2 sm:px-2">
@@ -76,14 +83,15 @@ const FNavbar = () => {
             {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">
               <div>
-                <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                <MenuButton className="relative text-white flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open user menu</span>
-                  <img
+                  {/* <img
                     alt=""
                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                     className="h-8 w-8 rounded-full"
-                  />
+                  /> */}
+                  Welcome {username}
                 </MenuButton>
               </div>
               <MenuItems
