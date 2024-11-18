@@ -21,12 +21,12 @@ const FNavbar = () => {
   const redirect = useNavigate()
   const dispatch = useDispatch()
   const handleLogout=()=>{
-    if(sessionStorage.getItem('23rdsept') != null){
-      sessionStorage.removeItem('23rdsept')
+    // if(sessionStorage.getItem('23rdsept') != null){
+    //   sessionStorage.removeItem('23rdsept')
       toast.success("loggedOut Successfully")
       dispatch(logout_user())
       redirect('/')
-    }
+    // }
   }
   // console.log(cartcon)
 

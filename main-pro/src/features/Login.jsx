@@ -17,7 +17,7 @@ const Login = () => {
      if(data.length==0){toast.error("Invalid credentials")}
      else if(data[0].password == user.password){
       let obj = {isLoggedIn:true,username:data[0].username,email:data[0].email,role:data[0].role,id:data[0].id}
-       sessionStorage.setItem("23rdsept",JSON.stringify(obj))
+      //  sessionStorage.setItem("23rdsept",JSON.stringify(obj))
 
         dispatch(login_user(obj)) //login_user action dispatch
 

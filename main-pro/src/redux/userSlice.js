@@ -26,3 +26,7 @@ const userSlice = createSlice({
 export const {login_user,logout_user} = userSlice.actions
 export default userSlice
 export const selectName =(state)=>state.user.name
+export const selectIsLoggedIn = (state)=>state.user.isLoggedIn
+export const selectEmail = (state)=>state.user.email
+export const selectRole = (state)=>state.user.role
+export const selectId = (state)=>state.user.id

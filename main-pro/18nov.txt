@@ -1,0 +1,5 @@
+redux toolkit -> 
+1. createasyncthunk 
+2. custom API middleware 
+3. Redux saga
+4. Redux toolkit query 

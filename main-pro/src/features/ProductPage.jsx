@@ -1,26 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useCart } from './CartContext'
 import ReactPaginate from 'react-paginate'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProducts, selectProducts } from '../redux/productSlice'
 
 const ProductPage = () => {
    const cartcon = useCart()
-    let [products,setProducts] =useState([])
-
-    useEffect(()=>{
-     getData().then((result)=> setProducts(result))
-      },[]) 
-      
-
-      const getData = async()=>{
-        try{
-          let res  = await fetch("https://67331a7f2a1b1a4ae1120b27.mockapi.io/products",{method:"GET"})
-          let data  = await res.json()
-          return data 
-        }
-        catch(err){
-          console.log(err)
-        }
-      }
+   const dispatch = useDispatch()
+    useEffect(()=>{  dispatch(fetchProducts())},[]) 
+    const products = useSelector(selectProducts)
+    
       const handleCart=(product)=>{
        cartcon.addtocart(product)
       }
