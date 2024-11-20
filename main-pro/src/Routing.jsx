@@ -19,7 +19,7 @@ const routing = createBrowserRouter([
             children:[
                 {path:'',element:<Home/>},
                 {path:'about',element:<About/>},
-                {path:'products',element:<Protected><ProductPage/></Protected>},
+                {path:'products',element:<ProductPage/>},
                 {path:'contact',element:<Contact/>},
                 {path:'login',element:<Login/>},
                 {path:'register',element:<Register/>},
@@ -38,3 +38,5 @@ const routing = createBrowserRouter([
 
 
 export default routing
+
+// {path:'products',element:<Protected><ProductPage/></Protected>},

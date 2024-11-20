@@ -7,7 +7,7 @@ const AddProduct = () => {
     const [product, setProduct] = useState({ ...initialData })
     const [picLoading,setPicLoading] =useState(false)
     const navigate = useNavigate()
-
+    const categories  = ["cloths","sports","grocery","electronics","furniture"]
     //edit 
     const {id} = useParams()
     const getData = async () => {
@@ -105,10 +105,10 @@ const AddProduct = () => {
                                 category
                             </label>
                             <div className="mt-2">
-                                <input name="category" type="text"
-                                    className="block w-96 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
-                                    value={product.category} onChange={(e)=>setProduct({...product,category:e.target.value})}
-                                />
+                                <select name="category"   className="block w-96 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" value={product.category} onChange={(e)=>setProduct({...product,category:e.target.value})}>
+                                    <option selected disabled value=''>choose one</option>
+                                    {categories.map((c,i)=><option key={i}>{c}</option>)}
+                                </select>
                             </div>
                         </div>
                     </div>

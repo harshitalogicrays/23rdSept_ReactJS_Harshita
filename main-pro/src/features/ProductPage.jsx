@@ -1,77 +1,57 @@
-import React, { useEffect, useState } from 'react'
-import { useCart } from './CartContext'
-import ReactPaginate from 'react-paginate'
+import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts, selectProducts } from '../redux/productSlice'
+import { filter_by_category, selectCategory, selectFilters, selectSearch } from '../redux/filterSlice'
+import ProductCard from './ProductCard'
 
 const ProductPage = () => {
-   const cartcon = useCart()
+
    const dispatch = useDispatch()
     useEffect(()=>{  dispatch(fetchProducts())},[]) 
     const products = useSelector(selectProducts)
-    
-      const handleCart=(product)=>{
-       cartcon.addtocart(product)
-      }
-      //pagination 
-      const itemsPerPage = 4
-      const [itemOffset, setItemOffset] = useState(0);//startindex 
-      const [currentItems,setCurrentItems] =useState([]) //0 to 4 index products
-      const [pageCount,setPageCount] = useState(0)
-      useEffect(()=>{
-        const endOffset = itemOffset + itemsPerPage;//0+5 = 5 , 5+5=10,15,35
-        setCurrentItems(products.slice(itemOffset, endOffset))//0 to 4 (5th exclude) , 5 to 9 (10 exclude),....30 to 35
-        setPageCount(Math.ceil(products.length / itemsPerPage)) //31/5 =>7
-      },[itemOffset,products])
+ 
+      //filters - 
+      const filterProducts= useSelector(selectFilters)
+      const searchval = useSelector(selectSearch)
+      const catval = useSelector(selectCategory)
 
-      const handlePageClick = (event) => { //pageno2 -> 1 index,pageno2-> 2index
-        const newOffset = (event.selected * itemsPerPage) % products.length; //1*5%31=> 5,2*5%31 => 10%31 => 10,......30%31=30
-        setItemOffset(newOffset); //5,10,30
-      };
+      const categories  = ["cloths","sports","grocery","electronics","furniture"]
+      const [cat,setCat] =useState('')
+      useEffect(()=>{
+        dispatch(filter_by_category({products,cat}))
+      },[cat])
   return (
     <>
-     <div className="bg-white">
-      <div className="mx-12 my-3 px-4 py-2 sm:px-6 sm:py-4  lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
+      <div className="flex justify-start bg-white">
+          <div className='mx-1 my-3 px-2 py-2 sm:px-2 sm:py-4  lg:px-2"'>
+            <h5 className='my-2 font-bold text-xl'>Categories</h5> 
+            <ul>
+              {categories.map((c,i)=>
+              <Fragment key={i}>
+              <li className='inline-flex justify-between w-12'><input type="radio" name="category" value={c} className='me-2' onChange={(e)=>setCat(c)}/><label>{c}</label></li><br/>
+              </Fragment>)}
+            </ul>
+            <h5 className='my-2 font-bold text-xl w-36'>Sort by Price</h5> 
+            <ul>
 
-        <div className="mt-6 mb-4 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {currentItems.map((product) => (
-            <div key={product.id} className="group relative">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-72">
-                <img
-                  alt={product.name}
-                  src={product.image}
-                  className="h-72 w-full object-cover object-center lg:w-96 lg:h-72"
-                />
-              </div>
-              <div className="mt-4 ">
-                <div>
-                  <h3 className="text-sm text-gray-700">
-                      <span aria-hidden="true" className=" inset-0" />
-                      {product.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-500">{product.category}</p>
-                </div>
-                <p className="text-sm font-medium text-gray-900">{product.selling_price}</p>
-              </div>
-              <button type="button" className='bg-slate-800 text-white p-2 rounded shadow shadow-black hover:bg-white hover:text-red-300 font-bold mt-2' onClick={()=>handleCart(product)}>Add to cart</button>
-            </div>
-          ))}
-        </div>
-        <ReactPaginate
-        breakLabel="..." nextLabel=">"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5} pageCount={pageCount}
-        previousLabel="<"
-        renderOnZeroPageCount={null}
-        containerClassName="isolate flex justify-end -space-x-px rounded-md shadow-"
-        pageClassName="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300  focus:z-20 focus:outline-offset-0 md:inline-flex"
-        activeClassName="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        previousClassName="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"
-        nextClassName='relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300  focus:z-20 focus:outline-offset-0'
-      />
+              <li className='inline-flex justify-between w-28'><input type="radio" name="price" value="htol" className='me-2'/><label>High to Low</label></li><br/>
+              <li className='inline-flex justify-between w-28'><input type="radio" name="price" value='ltoh' className='me-2'/><label>Low to High</label></li><br/>
+            </ul>
+          </div>
+        <div> {searchval != '' || catval !='' ?
+      <>
+        {filterProducts.length ==0 ? <h1 className='mt-20 font-bold text-2xl ps-10'>No Product found</h1> :
+         <ProductCard products= {filterProducts}/>
+        }
+      </>
+      : 
+      <ProductCard products= {products}/>
+      }
       </div>
-    </div>
+      </div>
+
+     
+      
     </>
   )
 }

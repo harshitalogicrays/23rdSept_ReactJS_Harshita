@@ -16,11 +16,11 @@ export const Cart = () => {
             {cartItems.map((item) => (
               <div key={item.id} className="flex items-center justify-between py-6 border-b border-gray-200">
                 <div className="flex items-center gap-6">
-                  <img src={item.image} alt={item.title} className="w-24 h-24 object-cover rounded-lg" />
+                  <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-lg" />
                   <div>
-                    <h2 className="text-xl font-semibold text-gray-800">{item.title}</h2>
-                    <p className="text-gray-600">Price: ${item.price.toFixed(2)}</p>
-                    <p className="text-gray-600">total Price: ${(item.price * item.qty).toFixed(2)}</p>
+                    <h2 className="text-xl font-semibold text-gray-800">{item.name}</h2>
+                    <p className="text-gray-600">Price: ${item.selling_price}</p>
+                    <p className="text-gray-600">total Price: ${item.selling_price * item.qty}</p>
                     <div className="flex items-center mt-4">
                       <button type="button"  className="w-16 p-2 text-center" onClick={()=>decrease(item)}>-</button>
                       <input
@@ -47,7 +47,7 @@ export const Cart = () => {
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">Order Summary</h2>
             <div className="flex justify-between text-lg mb-4">
               <span className="text-gray-700">Subtotal</span>
-              <span className="font-medium text-gray-900">${total.toFixed(2)}</span>
+              <span className="font-medium text-gray-900">${total}</span>
             </div>
             <div className="flex justify-between text-lg mb-4">
               <span className="text-gray-700">Shipping</span>
@@ -55,8 +55,8 @@ export const Cart = () => {
             </div>
             <div className="flex justify-between text-xl font-bold border-t pt-6">
               <span>Total</span>
-              <span className="text-gray-900">${(total>0 && total < 200) ? <>{(total + 5).toFixed(2)}</>:
-              <>{(total + 0).toFixed(2)}</> }</span>
+              <span className="text-gray-900">${(total>0 && total < 200) ? <>{Number(total + 5).toFixed(2)}</>:
+              <>{Number(total + 0).toFixed(2)}</> }</span>
             </div>
             <div className="flex justify-between">
             <button className="mt-8 w-36 me-3 bg-red-600 text-white py-3 rounded-lg text-lg font-medium hover:bg-red-700 transition duration-200"

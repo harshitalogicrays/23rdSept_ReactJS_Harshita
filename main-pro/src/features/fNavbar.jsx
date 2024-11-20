@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
@@ -8,6 +8,8 @@ import { toast } from 'react-toastify'
 import { ShowOnLogin, ShowOnLogout } from './hiddenlinks'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout_user, selectName } from '../redux/userSlice'
+import { filter_by_search } from '../redux/filterSlice'
+import { fetchProducts, selectProducts } from '../redux/productSlice'
 
 const navigation = [
   { name: 'Home', href: '/'},
@@ -32,6 +34,15 @@ const FNavbar = () => {
 
   // const username = useSelector((state)=>state.user.name)
   const username = useSelector(selectName)
+
+  //search - 
+  useEffect(()=>{  dispatch(fetchProducts())},[]) 
+  const products = useSelector(selectProducts)
+  let [search,setSearch] =useState('')
+  useEffect(()=>{
+      dispatch(filter_by_search({products,search}))
+  },[search])
+  
   return (
     <Disclosure as="nav" className="bg-gray-800">
       <div className="mx-auto max-w-7xl px-2 sm:px-2">
@@ -63,6 +74,9 @@ const FNavbar = () => {
             </div>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <input name="search" type="text"
+           className="block w-48 me-9 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" placeholder='search here'
+            value={search} onChange={(e)=>setSearch(e.target.value)}  />
          <ShowOnLogout>
           <NavLink to="/login"  className={({ isActive }) =>
            isActive ? "bg-gray-900 text-white rounded-md px-3 me-6  py-2 text-sm font-medium" : "rounded-md px-3 py-2 me-6 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}>Login</NavLink>
